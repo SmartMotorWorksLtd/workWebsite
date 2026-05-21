@@ -172,8 +172,19 @@ tr:hover {
 .right-arrow {
 	right: 10px;
 }
-.w3-row .w3-col {
-  width: 20%; /* 100% divided by 5 buttons */
+.w3-top .w3-row {
+  display: flex;
+  flex-wrap: nowrap; /* keeps everything on one line */
+}
+
+.w3-top .w3-col {
+  flex: 1; /* makes all buttons equal width */
+}
+
+.w3-top .w3-button {
+  width: 100%;
+  text-align: center;
+  white-space: nowrap; /* stops text wrapping */
 }
 .w3-button {
   text-align: center; /* Center text within the button */
@@ -221,6 +232,53 @@ ul.b {
     }
 }
 
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 10px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;  /* centres on page */
+  align-items: center;
+  gap: 20px;                /* controls closeness */
+  margin-top: 20px;
+}
+
+.social-icons img {
+  width: 60px;              /* make them bigger */
+  height: 60px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-bar {
+  display: flex;
+  flex-wrap: nowrap;       /* forces one line */
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-item {
+  flex: 1;                 /* equal width buttons */
+  text-align: center;
+  padding: 14px 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: black;
+  white-space: nowrap;     /* prevents text wrapping */
+}
+
+.nav-item:hover {
+  background-color: #FF7A07;
+}
+
 </style>
 </head>
 <body>
@@ -229,21 +287,13 @@ ul.b {
 <!-- Links (sit on top) -->
 <div class="w3-top">
   <div class="w3-row w3-padding w3-black">
-    <div class="w3-col s2">
-      <a href="#" class="w3-button w3-block w3-black">>HOME<</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="#about" class="w3-button w3-block w3-black">>ABOUT<</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="#menu" class="w3-button w3-block w3-black">>SERVICES<</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="#contact" class="w3-button w3-block w3-black">>CONTACT<</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="#reviews" class="w3-button w3-block w3-black">>REVIEWS<</a>
-    </div>
+	<a href="#" class="w3-button w3-block w3-black">>HOME<</a>
+	<a href="#competitions" class="w3-button w3-block w3-black">>COMPETITIONS<</a>
+	<a href="#about" class="w3-button w3-block w3-black">>ABOUT<</a>
+	<a href="#menu" class="w3-button w3-block w3-black">>SERVICES<</a>
+	<a href="#contact" class="w3-button w3-block w3-black">>CONTACT<</a>
+	<a href="#reviews" class="w3-button w3-block w3-black">>REVIEWS<</a>
+	<a href="#privacy" class="w3-button w3-block w3-black">>PRIVACY POLICY<</a>
   </div>
 </div>
 
@@ -265,6 +315,13 @@ ul.b {
 <!-- Add a background color and large text to the whole page -->
 <div class="w3-sand w3-large">
 
+	<div class="w3-container" id="competitions">
+	  <div class="w3-content" style="max-width:700px">
+		<h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">>COMPETITIONS:</span></h5>
+		<img src="competition1.jpeg" alt="Promotional Competition Image :)" style="width:100%; border-radius: 5px;">
+	  </div>
+	</div>
+	
 <!-- About Container -->
 	<div class="w3-container" id="about">
 	  <div class="w3-content" style="max-width:700px">
@@ -329,6 +386,13 @@ ul.b {
 				  </div>
 				</div>
 				<div class="carousel-item">
+				  <img src="ollie.jpeg" alt="Image 1">
+				  <div class="caption">
+					<h4>OLLIE</h4>
+					<p>Fast and Furious.</p>
+				  </div>
+				</div>
+				<div class="carousel-item">
 				  <img src="sarah.jpg" alt="Image 1">
 				  <div class="caption">
 					<h4>SARAH</h4>
@@ -336,7 +400,7 @@ ul.b {
 				  </div>
 				</div>
 				<div class="carousel-item">
-				  <img src="grace.jpg" alt="Image 1">
+				  <img src="grace1.jpeg" alt="Image 1">
 				  <div class="caption">
 					<h4>GRACE</h4>
 					<p>The geek.</p>
@@ -373,15 +437,15 @@ ul.b {
 			</tr>
 			<tr>
 				<td>Interim Service</td>
-				<td>£80.00</td>
+				<td>£90.00</td>
 			</tr>
 			<tr>
 				<td>Standard Service</td>
-				<td>£135.00</td>
+				<td>£145.00</td>
 			</tr>
 			<tr>
 				<td>Major Service</td>
-				<td>£187.50</td>
+				<td>£195.00</td>
 			</tr>
 		</tbody>
 	</table>
@@ -448,8 +512,16 @@ ul.b {
 		<p><strong>Find us at:</strong> 50 Paddock St, Norwich NR2 4TW</p>
 		<div class="w3-grayscale" id="map"></div>
 		<div class="label-mask" style="background-color: #d8d4cc;"></div>
-    </div>
+		<div class="social-icons">
+		  <a href="https://www.facebook.com/smartmotorworks/about/">
+			<img src="facebook.png" alt="Facebook">
+		  </a>
 
+		  <a href="https://www.instagram.com/smartmotorworksltd/">
+			<img src="instagram.png" alt="Instagram">
+		  </a>
+		</div>
+    </div>
 </div>
 
 <div class="w3-container" id="reviews">
@@ -473,9 +545,27 @@ ul.b {
 	</div>
   </div>
 </div>
-<div class="w3-container w3-center w3-padding-64">
-  <img src="logo.png" alt="Promotional Image" style="width:10%; border-radius: 10px;">
+
+<div class="w3-container" id="privacy">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">>PRIVACY POLICY:</span></h5>
+	  <div class="w3-container w3-center w3-padding-8">
+		<div class="row">
+		  <div class="column">
+			<p style="font-size:10%;text-align: left;">SMART MOTOR WORKS LTD<br>PRIVACY POLICY<br>Last Updated: May 2026<br>Smart Motor Works Ltd is committed to protecting your privacy and handling your personal information responsibly and securely.<br>This Privacy Policy explains what information we collect, how we use it, and your rights under UK data protection law.<br>1.WHO WE ARE<br>Smart Motor Works Ltd<br>Paddock Street<br>Norwich<br>NR2 4TW<br>Telephone: 01603 614690<br>Email: smartmotorworks@yahoo.com<br>For any privacy or data protection enquiries, please contact us using the details above.<br>2.WHAT INFORMATION WE COLLECT<br>We may collect and process the following personal information:<br>• Name<br>• Address<br>• Telephone number(s)<br>• Email address<br>• Vehicle registration and vehicle details<br>• Service, MOT, repair, and invoice history<br>• Communication preferences<br>We collect this information directly from customers when bookings, enquiries, or transactions are made.<br>3.HOW WE USE YOUR INFORMATION<br>We use customer information to:<br>• Manage vehicle servicing, MOTs, repairs, diagnostics, and bookings<br>• Contact customers regarding estimates, authorisation, vehicle collection, invoices, or ongoing work<br>• Maintain customer, accounting, and legal records<br>• Process payments and maintain financial records<br>• Provide customer support and aftercare<br>• Send MOT reminders and service reminders where appropriate<br>• and, where consent has been provided, send occasional marketing communications where customers have opted in<br>4.OUR LEGAL BASIS FOR PROCESSING<br>Under UK GDPR, we rely on the following lawful bases for processing personal information:<br>Contractual Necessity<br>Where processing is necessary to provide our garage services and fulfil customer bookings or repairs.<br>Legitimate Interests<br>Where processing is necessary for the legitimate operation of our business, including customer service, record keeping, fraud prevention, and business administration.<br>Legal Obligations<br>Where we are required to retain records for accounting, taxation, or legal compliance purposes.<br>Consent<br>Where customers have chosen to receive marketing communications from us.</p>
+		  </div>
+		  <div class="column">
+			<p style="font-size:10%;text-align: left;">5.MARKETING COMMUNICATIONS<br>If you choose to opt in, we may occasionally contact you by SMS, email, telephone, or post regarding:<br>• MOT reminders<br>• Service reminders<br>• Vehicle maintenance updates<br>• Seasonal promotions<br>• Garage news and offers<br>You may opt out of marketing communications at any time by:<br>• replying STOP to SMS messages,<br>• or contacting us directly,<br>Opting out of marketing will not affect operational or service-related communications.<br>6.SHARING YOUR INFORMATION<br>We do not sell or share customer information with third parties for their own marketing purposes.<br>We may share personal information with trusted third-party service providers who help us operate our business, including:<br>• Garage management software providers<br>• Accounting software providers<br>• Professional advisers where legally necessary<br>All third-party providers are required to handle personal information securely and in accordance with applicable data protection laws.<br>7.DATA RETENTION<br>We retain customer information only for as long as reasonably necessary for:<br>• business operations,<br>• legal obligations,<br>• accounting and tax requirements,<br>• and resolving disputes or complaints.<br>Some financial records may be retained for up to 6 years in accordance with HMRC requirements.<br>8.DATA SECURITY<br>We take reasonable technical and organisational measures to protect personal information from unauthorised access, misuse, loss, or disclosure.<br>9.	YOUR RIGHTS<br>Under UK data protection law, you have the right to:<br>• Request access to the personal information we hold about you<br>• Request correction of inaccurate or incomplete information<br>• Request erasure of personal information where applicable<br>• Object to certain types of processing<br>• Request restriction of processing in certain circumstances<br>• Withdraw marketing consent at any time<br>• Request transfer of your data where applicable<br>To exercise any of these rights, please contact us using the details provided above.<br>10.COMPLAINTS<br>If you are unhappy with how we handle your personal information, please contact us first so we can try to resolve the issue.<br>You also have the right to complain to the Information Commissioner’s Office (ICO):<br>11.CHANGES TO THIS POLICY<br>We may update this Privacy Policy from time to time. Any changes will be published on our website or made available upon request.</p>
+		  </div>
+		</div>			
+	  </div>
+  </div>
 </div>
+
+ <div class="w3-container w3-center w3-padding-48">
+  <img src="logo.png" alt="Promotional Image" style="width:20%; border-radius: 10px;">	
+</div>
+
 <div class="search">
 	<p style="color: #fdf5e6;">smart motor works Smart Motor Works mechanic car repair nowich Norwich paddock street smart motors MOTs MOT mot Repairs repairs air conditioning air-conditioning batteries battery card van vans class 4 four IV iv diagnostic fault clutch cambelt timing cam belt breaks brakes pads discs disks steve martin sarah martin duncan smy Duncan Smy Steve Martin Kevin Gaul David Hutt Joshua Thompson Stephen Martin Stephen Plunkett Steven oil air pollen aircon change fluid transmission DSG dsg bearing fix my car wheel tire tyre tyres tires england norfolk Norfolk engine gearbox gear box gear-box steering alignment</p>
 </div>
